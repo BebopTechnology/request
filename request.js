@@ -133,7 +133,7 @@ util.inherits(Request, stream.Stream)
 Request.debug = process.env.NODE_DEBUG && /\brequest\b/.test(process.env.NODE_DEBUG)
 function debug () {
   if (Request.debug) {
-    console.error('REQUEST %s', util.format.apply(util, arguments))
+    console.debug('REQUEST %s', util.format.apply(util, arguments))
   }
 }
 Request.prototype.debug = debug
