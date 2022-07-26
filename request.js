@@ -745,7 +745,7 @@ Request.prototype.start = function () {
   // node v6.8.0 now supports a `timeout` value in `http.request()`, but we
   // should delete it for now since we handle timeouts manually for better
   // consistency with node versions before v6.8.0
-  delete reqOptions.timeout
+  // delete reqOptions.timeout
 
   try {
     self.req = self.httpModule.request(reqOptions)
@@ -764,13 +764,13 @@ Request.prototype.start = function () {
   }
 
   var timeout
-  if (self.timeout && !self.timeoutTimer) {
-    if (self.timeout < 0) {
-      timeout = 0
-    } else if (typeof self.timeout === 'number' && isFinite(self.timeout)) {
-      timeout = self.timeout
-    }
-  }
+  // if (self.timeout && !self.timeoutTimer) {
+  //   if (self.timeout < 0) {
+  //     timeout = 0
+  //   } else if (typeof self.timeout === 'number' && isFinite(self.timeout)) {
+  //     timeout = self.timeout
+  //   }
+  // }
 
   self.req.on('response', self.onRequestResponse.bind(self))
   self.req.on('error', self.onRequestError.bind(self))
